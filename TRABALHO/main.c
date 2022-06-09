@@ -6,7 +6,7 @@ int main(){
     srand(time(NULL));
     int latitude[5], longitude[5], acidez[5], producao[5];
     
-    int i, j, auxiliar, posicao;//essa nova variavel ajuda a organizar os vetores
+    int i, j, auxiliar, posicao, posicao_melhor_producao[5], posicao_melhor_acidez[5];//essa nova variavel ajuda a organizar os vetores
 
     int melhor_acidez[5], melhor_producao[5];
 
@@ -30,19 +30,40 @@ int main(){
                 auxiliar = melhor_acidez[i];
                 melhor_acidez[i] = melhor_acidez[j];
                 melhor_acidez[j] = auxiliar;
+                posicao_melhor_acidez[i] = j;
             }
             if (melhor_producao[i] < melhor_producao[j])
             {
                 auxiliar = melhor_producao[i];
                 melhor_producao[i] = melhor_producao[j];
                 melhor_producao[j] = auxiliar;
+                posicao_melhor_producao[i] = j;
             }
         }
     }
     
+    printf("\nClassificacao da producao\n");
+    for (i = 0; i < 5; i++)
+    {
+        printf("  *%d\n", melhor_producao[i]);
+    }
+
+    printf("\nClassificacao da acidez\n");
+    for (i = 0; i < 5; i++)
+    {
+        printf("  *%d\n", melhor_acidez[i]);
+    }
+    
     printf("Digite a posicao producao: ");
         scanf("%d", &posicao);
-    printf("%d\n", melhor_producao[posicao-1]);
+        
+    printf("\nLatitude: %d\nLongitude: %d\nAcidez do solo: %d\n", latitude[posicao_melhor_producao[posicao-1]], longitude[posicao_melhor_producao[posicao-1]], acidez[posicao_melhor_producao[posicao-1]]);
+    printf("Melhor producao: %d\n", melhor_producao[posicao-1]);
+
+    printf("\n");
+
+    printf("Latitude: %d\nLongitude: %d\nProducao: %d\n", latitude[posicao_melhor_acidez[posicao-1]], longitude[posicao_melhor_acidez[posicao-1]], producao[posicao_melhor_producao[posicao-1]]);
+    printf("Melhor acidez: %d\n", melhor_acidez[posicao-1]);
 
 system("pause");
 return 0;
