@@ -42,18 +42,6 @@ int main(){
         }
     }
     
-    printf("\nClassificacao da producao\n");
-    for (i = 0; i < 5; i++)
-    {
-        printf("  *%d\n", melhor_producao[i]);
-    }
-
-    printf("\nClassificacao da acidez\n");
-    for (i = 0; i < 5; i++)
-    {
-        printf("  *%d\n", melhor_acidez[i]);
-    }
-    
     printf("Digite a posicao producao: ");
         scanf("%d", &posicao);
         
@@ -65,6 +53,19 @@ int main(){
     printf("Latitude: %d\nLongitude: %d\nProducao: %d\n", latitude[posicao_melhor_acidez[posicao-1]], longitude[posicao_melhor_acidez[posicao-1]], producao[posicao_melhor_producao[posicao-1]]);
     printf("Melhor acidez: %d\n", melhor_acidez[posicao-1]);
 
+    int latitude_usuario, longitude_usuario, posicao_longitude_latitude;
+    printf("Digite a latitude e longitude: ");
+        scanf("%d %d", &latitude_usuario, &longitude_usuario);
+    for (i = 0; i < 5; i++)
+    {
+        if (latitude_usuario == latitude[i] && longitude_usuario == longitude[i])
+        {
+            posicao_longitude_latitude = i;
+        }
+        
+    }
+    printf("\nMude a acidez e a producao: ");
+        scanf("%d %d", &acidez[posicao_longitude_latitude], &producao[posicao_longitude_latitude]);
 system("pause");
 return 0;
 }
