@@ -1,16 +1,22 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-
+/*
+Integrantes do grupo: 
+    ° Henrique Augusto Ferreira Silva
+    ° Gabriel Martins Sousa
+    ° Ricardo Morsoleto
+    ° Renato Mafra Goulart
+*/
 int main(){   
     srand(time(NULL));
-    int latitude[5], longitude[5], acidez[5], producao[5];
+    int latitude[100], longitude[100], acidez[100], producao[100];
     
-    int i, j, auxiliar, posicao, posicao_melhor_producao[5], posicao_melhor_acidez[5];//essa nova variavel ajuda a organizar os vetores
+    int i, j, auxiliar, posicao, posicao_melhor_producao[100], posicao_melhor_acidez[100];//essa nova variavel ajuda a organizar os vetores
 
-    int melhor_acidez[5], melhor_producao[5];
+    int melhor_acidez[100], melhor_producao[100];
 
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < 100; i++)
     {
         printf("Latitude: %d\t",  latitude[i] = rand()%1000);
         printf("Longitude: %d\t",  longitude[i] = rand()%1000);
@@ -21,9 +27,9 @@ int main(){
         melhor_producao[i] = producao[i];
     }
 
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < 100; i++)
     {
-        for (j = i + 1; j < 5; j++)
+        for (j = i + 1; j < 100; j++)
         {
             if (melhor_acidez[i] < melhor_acidez[j])
             {
@@ -56,7 +62,7 @@ int main(){
     int latitude_usuario, longitude_usuario, posicao_longitude_latitude;
     printf("Digite a latitude e longitude: ");
         scanf("%d %d", &latitude_usuario, &longitude_usuario);
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < 100; i++)
     {
         if (latitude_usuario == latitude[i] && longitude_usuario == longitude[i])
         {
@@ -67,15 +73,15 @@ int main(){
     printf("\nMude a acidez e a producao: ");
         scanf("%d %d", &acidez[posicao_longitude_latitude], &producao[posicao_longitude_latitude]);
     
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < 100; i++)
     {
         melhor_acidez[i] = acidez[i];
         melhor_producao[i] = producao[i];
     }  
     
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < 100; i++)
     {
-        for (j = i + 1; j < 5; j++)
+        for (j = i + 1; j < 100; j++)
         {
             if (melhor_acidez[i] < melhor_acidez[j])
             {
